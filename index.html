@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsha Vardhini R | AI & Data Science Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">HVR</div>
+    <div class="nav-links" id="navLinks"></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle" id="heroLocation"></p>
+      <h1 class="hero-title" id="heroName"></h1>
+      <h2 class="hero-role" id="heroRole"></h2>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <div class="hero-pillars">
+        <span>AI</span> &bull; 
+        <span>Hackathons</span> &bull; 
+        <span>Leadership</span> &bull; 
+        <span>Community</span> &bull; 
+        <span>Public Speaking</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#portfolio-deck" class="btn btn-primary">Explore My Work</a>
+        <a id="resumeBtn" href="#" download class="btn btn-secondary">Download Resume</a>
+        <a href="#contact" class="btn btn-accent">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic 3D Floating Papers Stage -->
+  <section class="deck-container" id="portfolio-deck">
+    <div class="deck-header">
+      <h2>EXECUTIVE PORTFOLIO DECK</h2>
+      <p>Scroll or click cards to inspect floating papers in full 3D detail</p>
+    </div>
+    <div class="stage-3d" id="stage3d">
+      <!-- Cards rendered dynamically from data.js -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <div class="contact-info">
+        <h2>GET IN TOUCH</h2>
+        <p>Looking to collaborate on AI projects, hackathons, or community leadership?</p>
+        <div class="info-links">
+          <p><strong>Email:</strong> <a id="contactEmail" href=""></a></p>
+          <p><strong>Phone:</strong> <a id="contactPhone" href=""></a></p>
+          <p><strong>LinkedIn:</strong> <a id="contactLinkedin" href="" target="_blank">View Profile</a></p>
+          <p><strong>GitHub:</strong> <a id="contactGithub" href="" target="_blank">View Code</a></p>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <!-- FREE Web3Forms Endpoint Integration -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+          <!-- Replace YOUR_ACCESS_KEY_HERE with key from web3forms.com -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+          <button type="submit" class="btn btn-accent">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Overlay for Expanded Floating Papers -->
+  <div class="modal-overlay" id="paperModal">
+    <div class="modal-paper">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Harsha Vardhini R. All rights reserved.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
