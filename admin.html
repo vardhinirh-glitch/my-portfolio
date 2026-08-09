@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Admin Dashboard</title>
+  <style>
+    body { background: #121214; color: #fff; font-family: sans-serif; padding: 40px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { border-bottom: 2px solid #800020; padding-bottom: 10px; margin-bottom: 30px; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 10px; background: #1a1a1e; border: 1px solid #2a2a30; color: #fff; margin-top: 5px; }
+    button { background: #800020; color: white; padding: 12px 20px; border: none; margin-top: 25px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #9e1b32; }
+    .export-box { margin-top: 40px; background: #1a1a1e; padding: 20px; border: 1px solid #2a2a30; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Portfolio CMS Dashboard</h1>
+    
+    <label>Name</label>
+    <input type="text" id="admName">
+
+    <label>Title / Role</label>
+    <input type="text" id="admTitle">
+
+    <label>Tagline</label>
+    <input type="text" id="admTagline">
+
+    <label>Location</label>
+    <input type="text" id="admLocation">
+
+    <label>Email</label>
+    <input type="email" id="admEmail">
+
+    <label>Phone</label>
+    <input type="text" id="admPhone">
+
+    <button onclick="saveLocal()">Save Changes (Local Preview)</button>
+    <button onclick="exportDataJS()">Export Updated data.js for GitHub</button>
+
+    <div class="export-box">
+      <h3>GitHub Deployment Helper</h3>
+      <p>Click "Export Updated data.js", copy the generated text below, and paste it directly into your <code>data.js</code> file on GitHub to publish your edits live!</p>
+      <textarea id="exportArea" rows="10" readonly></textarea>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    const saved = localStorage.getItem("portfolioData");
+    const data = saved ? JSON.parse(saved) : portfolioData;
+
+    document.getElementById("admName").value = data.profile.name;
+    document.getElementById("admTitle").value = data.profile.title;
+    document.getElementById("admTagline").value = data.profile.tagline;
+    document.getElementById("admLocation").value = data.profile.location;
+    document.getElementById("admEmail").value = data.profile.contact.email;
+    document.getElementById("admPhone").value = data.profile.contact.phone;
+
+    function saveLocal() {
+      data.profile.name = document.getElementById("admName").value;
+      data.profile.title = document.getElementById("admTitle").value;
+      data.profile.tagline = document.getElementById("admTagline").value;
+      data.profile.location = document.getElementById("admLocation").value;
+      data.profile.contact.email = document.getElementById("admEmail").value;
+      data.profile.contact.phone = document.getElementById("admPhone").value;
+
+      localStorage.setItem("portfolioData", JSON.stringify(data));
+      alert("Local changes saved! Refresh your main website page to preview.");
+    }
+
+    function exportDataJS() {
+      saveLocal();
+      const exportText = "const portfolioData = " + JSON.stringify(data, null, 2) + ";";
+      document.getElementById("exportArea").value = exportText;
+    }
+  </script>
+</body>
+</html>
