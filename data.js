@@ -13,7 +13,6 @@ const portfolioData = {
     }
   },
   
-  // Dynamic Section Configuration - Reorder, add, or hide sections here
   sections: [
     {
       id: "about",
@@ -22,18 +21,18 @@ const portfolioData = {
       visible: true,
       order: 1,
       content: {
-        bio: "I’m Harsha Vardhini R, a second-year B.Tech student in Artificial Intelligence & Data Science at Panimalar Engineering College, Chennai[cite: 1]. I’m interested in building practical AI solutions, exploring emerging technologies, participating in hackathons, and creating meaningful experiences through technology communities, leadership, and communication.",
+        bio: "I’m Harsha Vardhini R, a student in Artificial Intelligence & Data Science at Panimalar Engineering College, Chennai. I’m interested in building practical AI solutions, exploring emerging technologies, participating in hackathons, and creating meaningful experiences through technology communities, leadership, and communication.",
         academic: {
           degree: "B.Tech",
-          branch: "Artificial Intelligence & Data Science[cite: 1]",
-          college: "Panimalar Engineering College[cite: 1]",
-          currentYear: "2nd Year",
-          expectedGraduation: "2029[cite: 1]",
-          location: "Chennai, India[cite: 1]"
+          branch: "Artificial Intelligence & Data Science",
+          college: "Panimalar Engineering College",
+          currentYear: "1st Year",
+          expectedGraduation: "2029",
+          location: "Chennai, India"
         },
         focus: [
-          "Artificial Intelligence & Machine Learning[cite: 1]",
-          "Generative AI[cite: 1]",
+          "Artificial Intelligence & Machine Learning",
+          "Generative AI",
           "Computer Vision",
           "NLP",
           "AI-powered applications",
@@ -41,16 +40,16 @@ const portfolioData = {
           "Hackathon-driven development"
         ],
         learning: [
-          "Programming[cite: 1]",
-          "Data Structures & Algorithms[cite: 1]",
-          "AI/ML[cite: 1]",
-          "Generative AI[cite: 1]",
+          "Programming",
+          "Data Structures & Algorithms",
+          "AI/ML",
+          "Generative AI",
           "Software development",
           "Research methodologies",
           "Practical AI development"
         ],
         careerInterest: "Artificial Intelligence, research, real-world problem solving and technology-driven products.",
-        distinctiveIdentity: "Combining technical exploration with hackathons, technology communities, leadership, event organization and public speaking[cite: 1]."
+        distinctiveIdentity: "Combining technical exploration with hackathons, technology communities, leadership, event organization and public speaking."
       }
     },
     {
@@ -198,8 +197,7 @@ const portfolioData = {
       id: "speaking",
       title: "PUBLIC SPEAKING",
       type: "speaking",
-      visible: true,
-      order: 7,
+      visible: true, order: 7,
       content: [
         {
           event: "Online Technical Sessions",
