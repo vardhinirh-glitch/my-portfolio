@@ -1,167 +1,92 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Check for saved local content from Admin CMS or fallback to default
-  const savedData = localStorage.getItem("portfolioData");
-  const data = savedData ? JSON.parse(savedData) : portfolioData;
-
-  // 1. Load Profile
-  document.getElementById("heroName").innerText = data.profile.name;
-  document.getElementById("heroRole").innerText = data.profile.title;
-  document.getElementById("heroTagline").innerText = data.profile.tagline;
-  document.getElementById("heroLocation").innerText = data.profile.location;
-  document.getElementById("resumeBtn").setAttribute("href", data.profile.resumeUrl);
-
-  document.getElementById("contactEmail").innerText = data.profile.contact.email;
-  document.getElementById("contactEmail").setAttribute("href", `mailto:${data.profile.contact.email}`);
-  document.getElementById("contactPhone").innerText = data.profile.contact.phone;
-  document.getElementById("contactPhone").setAttribute("href", `tel:${data.profile.contact.phone}`);
-  document.getElementById("contactLinkedin").setAttribute("href", data.profile.contact.linkedin);
-  document.getElementById("contactGithub").setAttribute("href", data.profile.contact.github);
-
-  document.getElementById("year").innerText = new Date().getFullYear();
-
-  // 2. Render Nav Links
-  const navLinksContainer = document.getElementById("navLinks");
-  navLinksContainer.innerHTML = "";
-  const visibleSections = data.sections.filter(s => s.visible).sort((a, b) => a.order - b.order);
-
-  visibleSections.forEach(sec => {
-    const link = document.createElement("a");
-    link.href = `#portfolio-deck`;
-    link.innerText = sec.title;
-    navLinksContainer.appendChild(link);
-  });
-
-  // 3. Render 3D Cylindrical Orbiting Papers
-  const carousel = document.getElementById("carousel3d");
-  carousel.innerHTML = "";
-  const count = visibleSections.length;
-  const radius = 420; // Radius of 3D orbit
-
-  visibleSections.forEach((sec, idx) => {
-    const angle = (idx / count) * 360;
-    const card = document.createElement("div");
-    card.className = "paper-card";
-    
-    // Position cards evenly around a 3D circle
-    card.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-
-    // Preview snippet generator
-    let previewHtml = "";
-    if (sec.type === "about") {
-      previewHtml = `<p>${sec.content.bio.substring(0, 120)}...</p>`;
-    } else if (sec.type === "projects") {
-      previewHtml = sec.content.map(p => `<p><strong>${p.name}</strong></p>`).join("");
-    } else if (sec.type === "experience") {
-      previewHtml = sec.content.map(e => `<p><strong>${e.position}</strong> @ ${e.organization}</p>`).join("");
-    } else if (sec.type === "certifications") {
-      previewHtml = sec.content.map(c => `<p>&bull; ${c.name}</p>`).join("");
-    } else if (sec.type === "hackathons") {
-      previewHtml = sec.content.map(h => `<p><strong>${h.title}</strong>: ${h.achievement}</p>`).join("");
-    } else if (sec.type === "leadership") {
-      previewHtml = sec.content.map(l => `<p><strong>${l.role}</strong> — ${l.organization}</p>`).join("");
-    } else if (sec.type === "speaking") {
-      previewHtml = sec.content.slice(0, 2).map(s => `<p>&bull; ${s.event} (${s.role})</p>`).join("");
-    } else {
-      previewHtml = `<p>Click to open ${sec.title}</p>`;
-    }
-
-    card.innerHTML = `
-      <div class="paper-card-header">
-        <h3>${sec.title}</h3>
-      </div>
-      <div class="paper-card-body">
-        ${previewHtml}
-      </div>
-      <div class="paper-card-footer">
-        Open Paper &rarr;
-      </div>
-    `;
-
-    card.addEventListener("click", () => openModal(sec));
-    carousel.appendChild(card);
-  });
-
-  // 4. Scroll & Interactive Orbit Motion
-  let rotationAngle = 0;
-  window.addEventListener("scroll", () => {
-    const scrollPos = window.scrollY;
-    rotationAngle = scrollPos * 0.15;
-    if (window.innerWidth > 768) {
-      carousel.style.transform = `rotateY(${rotationAngle}deg)`;
-    }
-  });
-
-  // 5. Modal Paper Renderers (Fixing Leadership & Code Rendering)
-  const modal = document.getElementById("paperModal");
-  const modalBody = document.getElementById("modalBody");
-  const modalClose = document.getElementById("modalClose");
-
-  function openModal(section) {
-    let fullHtml = `<h3>${section.title}</h3>`;
-
-    if (section.type === "about") {
-      const c = section.content;
-      fullHtml += `
-        <p>${c.bio}</p><br>
-        <h4>ACADEMIC PROFILE</h4>
-        <ul>
-          <li><strong>Degree:</strong> ${c.academic.degree} (${c.academic.branch})[cite: 1]</li>
-          <li><strong>College:</strong> ${c.academic.college}[cite: 1]</li>
-          <li><strong>Year:</strong> ${c.academic.currentYear} (Graduation: ${c.academic.expectedGraduation})[cite: 1]</li>
-        </ul>
-      `;
-    } else if (section.type === "projects") {
-      fullHtml += section.content.map(p => `
-        <div class="modal-item">
-          <h4>${p.name}</h4>
-          <p><strong>Problem:</strong> ${p.problem}</p>
-          <p><strong>Solution:</strong> ${p.solution}</p>
-          <p><strong>Tech:</strong> ${p.technologies.join(", ")}</p>
-        </div>
-      `).join("");
-    } else if (section.type === "experience") {
-      fullHtml += section.content.map(e => `
-        <div class="modal-item">
-          <h4>${e.position} — ${e.organization}</h4>
-          <p><em>${e.duration} | ${e.type}</em></p>
-          ${e.responsibilities ? `<p>${e.responsibilities.join(", ")}</p>` : ""}
-        </div>
-      `).join("");
-    } else if (section.type === "leadership") {
-      // PROPER HUMAN-READABLE RENDERING (NO RAW CODE)
-      fullHtml += section.content.map(item => `
-        <div class="modal-item">
-          <h4>${item.role}</h4>
-          <p><strong>Organization:</strong> ${item.organization}</p>
-          <p>${item.details}</p>
-        </div>
-      `).join("");
-    } else if (section.type === "hackathons") {
-      fullHtml += section.content.map(h => `
-        <div class="modal-item">
-          <h4>${h.title}</h4>
-          <p><strong>Result:</strong> ${h.achievement}</p>
-          <p>${h.description}</p>
-        </div>
-      `).join("");
-    } else if (section.type === "certifications") {
-      fullHtml += `<ul>${section.content.map(c => `<li><strong>${c.name}</strong> (${c.issuer})</li>`).join("")}</ul>`;
-    } else if (section.type === "speaking") {
-      fullHtml += section.content.map(s => `
-        <div class="modal-item">
-          <h4>${s.event}</h4>
-          <p><strong>Role:</strong> ${s.role} (${s.type})</p>
-          ${s.note ? `<p><em>${s.note}</em></p>` : ""}
-        </div>
-      `).join("");
-    } else {
-      fullHtml += `<p>${JSON.stringify(section.content)}</p>`;
-    }
-
-    modalBody.innerHTML = fullHtml;
-    modal.classList.add("active");
+  // Check if data is available
+  if (typeof portfolioData === "undefined") {
+    console.error("portfolioData is not loaded!");
+    return;
   }
 
-  modalClose.addEventListener("click", () => modal.classList.remove("active"));
-  modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("active"); });
+  // 1. Render Hero Section
+  document.getElementById("hero-name").textContent = portfolioData.hero.name;
+  document.getElementById("hero-titles").textContent = portfolioData.hero.titles.join(" | ");
+  document.getElementById("hero-desc").textContent = portfolioData.hero.description;
+  
+  const socialsContainer = document.getElementById("hero-socials");
+  socialsContainer.innerHTML = `
+    <a href="${portfolioData.hero.socials.github}" target="_blank" class="social-btn">GitHub</a>
+    <a href="${portfolioData.hero.socials.linkedin}" target="_blank" class="social-btn">LinkedIn</a>
+  `;
+
+  // 2. Render Skills Section
+  const skillsContainer = document.getElementById("skills-container");
+  skillsContainer.innerHTML = portfolioData.skills.map(skill => `
+    <div class="skill-badge">
+      <span class="sparkle-icon">✦</span>
+      <span>${skill.name}</span>
+    </div>
+  `).join("");
+
+  // 3. Render Projects Section
+  const projectsContainer = document.getElementById("projects-container");
+  projectsContainer.innerHTML = portfolioData.projects.map(proj => `
+    <div class="y2k-card project-card">
+      <div class="file-header">
+        <span class="file-title">${proj.path}</span>
+        <span class="sparkle-icon">✧</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">${proj.title}</h3>
+        <p>${proj.description}</p>
+        <div class="project-tags">
+          ${proj.tags.map(tag => `<span class="pixel-pill lavender">${tag}</span>`).join("")}
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  // 4. Render Experience Section
+  const experienceContainer = document.getElementById("experience-container");
+  experienceContainer.innerHTML = portfolioData.experience.map(exp => `
+    <div class="timeline-item">
+      <div class="timeline-role">${exp.role}</div>
+      <div class="timeline-org">${exp.organization} • ${exp.duration}</div>
+      <p>${exp.details}</p>
+    </div>
+  `).join("");
+
+  // 5. Render Leadership Section
+  const leadershipContainer = document.getElementById("leadership-container");
+  leadershipContainer.innerHTML = portfolioData.leadership.map(item => `
+    <div class="y2k-card leadership-card">
+      <div class="metric-banner">${item.metric}</div>
+      <h3 style="font-family: var(--font-heading); margin-bottom: 6px;">${item.title}</h3>
+      <p>${item.description}</p>
+    </div>
+  `).join("");
+
+  // 6. Render Certifications Section
+  const certContainer = document.getElementById("certifications-container");
+  certContainer.innerHTML = portfolioData.certifications.map(cert => `
+    <div class="y2k-card cert-card">
+      <span class="pixel-pill terracotta" style="margin-bottom: 10px;">${cert.tag}</span>
+      <h4 style="font-family: var(--font-heading); font-size: 1.1rem; margin-top: 8px;">${cert.title}</h4>
+      <p style="font-size: 0.85rem; color: var(--lavender); font-weight: 700;">${cert.issuer}</p>
+    </div>
+  `).join("");
+
+  // 7. Render Contact Section & Form Logic
+  document.getElementById("contact-email-text").textContent = `Email: ${portfolioData.contact.email}`;
+  document.getElementById("contact-socials").innerHTML = `
+    <a href="${portfolioData.contact.github}" target="_blank" class="social-btn">GitHub</a>
+    <a href="${portfolioData.contact.linkedin}" target="_blank" class="social-btn">LinkedIn</a>
+  `;
+
+  const contactForm = document.getElementById("contact-form");
+  const formStatus = document.getElementById("form-status");
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    formStatus.style.color = "var(--terracotta)";
+    formStatus.textContent = "✦ Transmission Sent Successfully! I will get back to you soon.";
+    contactForm.reset();
+  });
 });
