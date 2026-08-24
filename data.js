@@ -1,8 +1,8 @@
 const portfolioData = {
   hero: {
     name: "Harsha Vardhini R",
-    titles: ["AI & Data Science Student", "Tech Entrepreneur", "Leader"],
-    description: "Second-year AIDS student at Panimalar Engineering College, Lead at CodeSapiens, and Core Team member at DS Club.",
+    titles: "AI & Data Science Student | Tech Entrepreneur | Leader",
+    description: "2nd Year B.Tech AIDS student at Panimalar Engineering College | Lead at CodeSapiens | Core Team at DS Club",
     profileImg: "profile.jpg",
     resumeLink: "resume.pdf",
     socials: {
@@ -24,21 +24,21 @@ const portfolioData = {
     {
       title: "Vanguard AI",
       path: "projects/vanguard_ai.exe",
-      description: "Advanced AI framework designed for high-performance predictive analytics and automated decision intelligence.",
+      description: "Advanced AI framework designed for high-performance predictive analytics and automated candidate resume ranking.",
       tags: ["Python", "ML", "AWS"],
       link: "#"
     },
     {
       title: "Semitizen",
       path: "projects/semitizen.sys",
-      description: "Next-gen platform bridging tech communities and smart solutions for digital ecosystems.",
+      description: "Next-gen platform bridging tech communities and psychopathology insights for digital ecosystems.",
       tags: ["Web Dev", "Data Science", "API"],
       link: "#"
     },
     {
       title: "Stock Portfolio Tracker",
       path: "projects/portfolio_tracker.app",
-      description: "Real-time market analytics and algorithmic portfolio tracking application for modern investors.",
+      description: "Real-time market analytics and algorithmic portfolio tracking application built for performance monitoring.",
       tags: ["Python", "DSA", "Financial Tech"],
       link: "#"
     }
@@ -54,7 +54,7 @@ const portfolioData = {
       role: "Community Outreach Lead",
       organization: "SheBuilds Chennai",
       duration: "Active",
-      details: "Spearheaded outreach strategies across regional tech chapters, connecting thousands of women engineers in tech."
+      details: "Spearheading community outreach strategies across regional tech chapters, connecting over 12,000+ women engineers."
     },
     {
       role: "Lead & Core Executive",
@@ -66,16 +66,16 @@ const portfolioData = {
   leadership: [
     {
       title: "SheBuilds Community Leader",
-      metric: "12,000+ Members",
-      description: "Organized large-scale hackathons, mentorship tracks, and regional community events."
+      metric: "12,000+ Community",
+      description: "Organizing national women-in-tech hackathons, mentorship tracks, and regional technical initiatives."
     },
     {
       title: "Public Speaking & MUN",
       metric: "Keynote & Chair",
-      description: "Chaired Model United Nations assemblies and delivered technical keynotes on AI leadership."
+      description: "Chaired Model United Nations assemblies and delivered technical keynotes on AI leadership and ethics."
     },
     {
-      title: "Technical Speaker & Mentor",
+      title: "Technical Speaker & Host",
       metric: "20+ Workshops",
       description: "Hosted hands-on live coding sessions covering Machine Learning pipelines, DSA, and career acceleration in tech."
     }
