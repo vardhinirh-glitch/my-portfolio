@@ -25,9 +25,12 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   padding-bottom: 40px;
+  background-image: radial-gradient(var(--dark) 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+  background-color: var(--cream);
 }
 
-/* Retro Top Bar */
+/* Retro Desktop Top Bar */
 .top-bar {
   background: var(--dark);
   color: var(--cream);
@@ -64,7 +67,7 @@ body {
   gap: 40px;
 }
 
-/* Y2K Card Styles */
+/* Y2K Card Containers */
 .y2k-card {
   background: var(--white);
   border: var(--border);
@@ -87,7 +90,7 @@ body {
   color: var(--dark);
 }
 
-/* Typography & Headings */
+/* Section Title & mIxEd-cAsE Headings */
 .section-title-wrap {
   display: flex;
   align-items: center;
@@ -97,11 +100,11 @@ body {
 
 .retro-heading {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--dark);
-  text-transform: none; /* Preserves mixed-case styling */
+  text-transform: none; /* Keeps playful mixed-case styling */
 }
 
 .sparkle-icon {
@@ -115,7 +118,7 @@ body {
   text-shadow: 2px 2px 0px var(--dark);
 }
 
-/* Pixel Pills */
+/* Pixelated Pills & Badges */
 .pixel-pill {
   display: inline-block;
   padding: 4px 12px;
@@ -131,7 +134,7 @@ body {
 .pixel-pill.lavender { background: var(--lavender); color: var(--white); }
 .pixel-pill.terracotta { background: var(--terracotta); color: var(--white); }
 
-/* Hero Section */
+/* Hero / Landing Section */
 .hero-content {
   padding: 32px;
   display: grid;
@@ -197,7 +200,7 @@ body {
   background: #E24840;
 }
 
-/* Hero Cut-Out Portrait Layer */
+/* Overlapping Cut-Out Portrait Layer */
 .hero-avatar-wrapper {
   position: relative;
   display: flex;
@@ -207,8 +210,8 @@ body {
 
 .avatar-backdrop {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: 230px;
+  height: 230px;
   background: var(--gold);
   border: var(--border);
   border-radius: 50%;
@@ -218,7 +221,7 @@ body {
 
 .hero-portrait {
   width: 240px;
-  height: 280px;
+  height: 290px;
   object-fit: cover;
   border-radius: 20px;
   border: var(--border);
@@ -242,7 +245,7 @@ body {
   z-index: 3;
 }
 
-/* Skills Grid */
+/* Ainin Style "Softwares" Skills Grid */
 .skills-grid {
   padding: 24px;
   display: flex;
@@ -299,7 +302,7 @@ body {
   margin-top: 14px;
 }
 
-/* Timeline / Experience */
+/* Experience Section Timeline */
 .timeline {
   padding: 24px;
   display: flex;
@@ -356,7 +359,7 @@ body {
   box-shadow: 2px 2px 0px var(--dark);
 }
 
-/* Certifications Grid */
+/* Certifications Block Layout */
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -375,6 +378,12 @@ body {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 32px;
+}
+
+.contact-email-val {
+  font-weight: bold;
+  margin: 12px 0;
+  font-family: monospace;
 }
 
 .retro-form {
@@ -401,7 +410,6 @@ body {
   border-radius: 6px;
   font-family: var(--font-body);
   background: var(--cream);
-  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.05);
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -451,7 +459,7 @@ body {
   color: var(--dark);
 }
 
-/* Mobile Responsiveness */
+/* Responsive Mobile Layout adjustments */
 @media (max-width: 768px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -471,6 +479,6 @@ body {
   }
 
   .retro-heading {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
