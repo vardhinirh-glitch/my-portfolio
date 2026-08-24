@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if data is available
+  // Validate data existence
   if (typeof portfolioData === "undefined") {
-    console.error("portfolioData is not loaded!");
+    console.error("portfolioData failed to load from data.js!");
     return;
   }
 
-  // 1. Render Hero Section
+  // 1. Hero Section Binding
   document.getElementById("hero-name").textContent = portfolioData.hero.name;
-  document.getElementById("hero-titles").textContent = portfolioData.hero.titles.join(" | ");
+  document.getElementById("hero-titles").textContent = portfolioData.hero.titles;
   document.getElementById("hero-desc").textContent = portfolioData.hero.description;
+  document.getElementById("hero-img").src = portfolioData.hero.profileImg;
+  document.getElementById("hero-resume").href = portfolioData.hero.resumeLink;
   
   const socialsContainer = document.getElementById("hero-socials");
   socialsContainer.innerHTML = `
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="${portfolioData.hero.socials.linkedin}" target="_blank" class="social-btn">LinkedIn</a>
   `;
 
-  // 2. Render Skills Section
+  // 2. Skills Section Binding (Ainin Software Badge Style)
   const skillsContainer = document.getElementById("skills-container");
   skillsContainer.innerHTML = portfolioData.skills.map(skill => `
     <div class="skill-badge">
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  // 3. Render Projects Section
+  // 3. Projects Section Binding
   const projectsContainer = document.getElementById("projects-container");
   projectsContainer.innerHTML = portfolioData.projects.map(proj => `
     <div class="y2k-card project-card">
@@ -43,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  // 4. Render Experience Section
+  // 4. Experience Section Binding
   const experienceContainer = document.getElementById("experience-container");
   experienceContainer.innerHTML = portfolioData.experience.map(exp => `
     <div class="timeline-item">
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  // 5. Render Leadership Section
+  // 5. Leadership Section Binding
   const leadershipContainer = document.getElementById("leadership-container");
   leadershipContainer.innerHTML = portfolioData.leadership.map(item => `
     <div class="y2k-card leadership-card">
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  // 6. Render Certifications Section
+  // 6. Certifications Section Binding
   const certContainer = document.getElementById("certifications-container");
   certContainer.innerHTML = portfolioData.certifications.map(cert => `
     <div class="y2k-card cert-card">
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  // 7. Render Contact Section & Form Logic
+  // 7. Contact Section & Email Connection Logic
   document.getElementById("contact-email-text").textContent = `Email: ${portfolioData.contact.email}`;
   document.getElementById("contact-socials").innerHTML = `
     <a href="${portfolioData.contact.github}" target="_blank" class="social-btn">GitHub</a>
