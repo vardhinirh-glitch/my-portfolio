@@ -1,4 +1,4 @@
-# Harsha Vardhini R — Y2K Retro-Futuristic  Portfolio
+# Harsha Vardhini R — Y2K Retro-Futuristic Anti-Gravity Portfolio
 
 A high-performance personal portfolio web application inspired by the visual canvas aesthetic of creator Ainin, styled with Y2K retro-futurism, tactile micro-interactions, anti-gravity swinging animations, and seamless tab transitions.
 
@@ -6,7 +6,7 @@ A high-performance personal portfolio web application inspired by the visual can
 
 ## 🌟 Key Features
 
-1. ** Hero Section**:
+1. **Anti-Gravity Hero Section**:
    - Dedicated swinging canvas frame with realistic pendulum physics (`antiGravitySwing` keyframes) and dynamic ground shadow breathing.
    - Interactive 3D mouse parallax tilt on hover.
    - Status indicators, direct "Download Resume" (`resume.pdf`), LinkedIn and GitHub social chips.

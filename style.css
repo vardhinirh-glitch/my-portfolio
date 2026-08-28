@@ -48,8 +48,13 @@
   padding: 0;
 }
 
-html {
+html, body {
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  max-width: 100vw;
+}
+
+html {
   font-size: 16px;
   background-color: #2b2347;
 }
@@ -60,7 +65,6 @@ body {
   background: radial-gradient(circle at 50% 15%, #463d6f 0%, #292144 55%, #181329 100%);
   background-attachment: fixed;
   min-height: 100vh;
-  overflow-x: hidden;
   position: relative;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -1338,8 +1342,9 @@ body {
   box-shadow: 1px 1px 0px #1c182a;
 }
 
-/* Open Source Section */
-.opensource-container {
+/* Open Source / Community Contributions Section */
+.opensource-container,
+.community-contributions-container {
   background: var(--c-canvas-cream);
   border: var(--border-y2k);
   border-radius: var(--radius-lg);
@@ -1348,14 +1353,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.os-header {
+.os-header,
+.community-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px dashed #b8b1a5;
   padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .os-badge {
@@ -1371,6 +1383,8 @@ body {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--c-dark-purple);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .os-tag {
@@ -1382,13 +1396,18 @@ body {
   border-radius: var(--radius-sm);
 }
 
-.os-grid {
+.os-grid,
+.community-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.os-card {
+.os-card,
+.community-card,
+.contribution-card {
   background: #ffffff;
   border: var(--border-y2k-thin);
   border-radius: var(--radius-md);
@@ -1396,17 +1415,32 @@ body {
   box-shadow: 3px 3px 0px #1c182a;
   display: flex;
   gap: 14px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .os-card-icon { font-size: 2rem; flex-shrink: 0; }
 
-.os-card-body { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.os-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 .os-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 8px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .os-card-name {
@@ -1414,6 +1448,8 @@ body {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--c-dark-purple);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .os-role {
@@ -1424,12 +1460,20 @@ body {
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 700;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.3;
+  display: inline-block;
 }
 
 .os-card-desc {
   font-size: 0.88rem;
   color: #3b354c;
   line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .os-card-pills {
@@ -1437,6 +1481,8 @@ body {
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 4px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -2448,80 +2494,512 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    gap: 12px;
-    padding: 10px 16px;
+  /* 1. Global Viewport, Card Safety & Section Container Spacing */
+  .viewport-stage {
+    padding: 0 16px;
+    margin: 24px auto 48px;
+    gap: 40px;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
-  .nav-tabs {
-    flex-wrap: wrap;
-    justify-content: center;
+  .portfolio-section {
+    scroll-margin-top: 165px;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Universal card width restraint and word-wrapping */
+  .hero-container, .stat-card, .about-card-canvas, .interactive-social-card,
+  .project-card, .opensource-container, .community-contributions-container,
+  .os-card, .community-card, .contribution-card, .skills-dual-panel,
+  .skills-left-gradient-panel, .skills-right-canvas-panel, .skill-artifact-card,
+  .y2k-artifact-card, .milestone-card, .role-entry, .contact-form-pane,
+  .direct-contact-card, .social-tile, .resume-download-card, .y2k-modal-window {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word;
+  }
+
+  /* 2. Navigation Bar & Ticker: Horizontal Scrolling, Proper Stacking & Clearance */
+  .retro-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
     width: 100%;
   }
 
+  .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 6px 8px;
+    gap: 6px;
+    box-sizing: border-box;
+  }
+
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 0.7rem;
+  }
+
+  .ticker-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
+    border-top: 2px solid #140f21;
+    border-bottom: 2px solid #140f21;
+  }
+
+  /* 3. Home Hero Section: Vertical Column & Centered Restrained Graphic */
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 16px;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .hero-left {
+    order: 1;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .hero-right {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .figure-anti-gravity-stage {
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 14px 0 6px;
+  }
+
+  .isolated-avatar-rig {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .isolated-cutout-img {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .figure-ground-shadow {
+    width: 60%;
+    max-width: 200px;
+    height: 16px;
+    margin: 6px auto 0;
+  }
+
+  /* Hero Floating Badges Constrained */
+  .badge-fl-1 {
+    top: 6px;
+    left: 4px;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+
+  .badge-fl-2 {
+    bottom: 24px;
+    right: 4px;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+
+  .star-fl-1 {
+    top: 4px;
+    right: 12px;
+    font-size: 1.4rem;
+  }
+
+  .star-fl-2 {
+    bottom: 16px;
+    left: 8px;
+    font-size: 1.3rem;
+  }
+
+  .burst-fl-1 {
+    top: 45%;
+    right: 0px;
+    font-size: 1.4rem;
+  }
+
+  /* 4. Section Containers Spacing & Typography */
   .title-name {
     font-size: 2.2rem;
   }
 
+  .title-sub {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-bio-lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .hero-stats-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about-top-bar {
+    padding: 10px 14px;
+  }
+
+  .about-card-canvas {
+    padding: 24px 16px;
+  }
+
+  .about-isolated-cutout {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .about-ground-shadow {
+    width: 60%;
+    max-width: 190px;
+    height: 16px;
+  }
+
+  .interactive-social-card.left-side-badge {
+    margin-top: -16px;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
+  }
+
+  .heyo-banner {
+    font-size: 1.7rem;
+    padding: 4px 12px;
+  }
+
+  .name-pill-container {
+    font-size: 1.15rem;
+    padding: 4px 14px;
+  }
+
+  .section-title-bar {
+    padding: 16px 16px;
+  }
+
+  .section-heading {
+    font-size: 1.7rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .project-card {
+    padding: 20px 16px;
+  }
+
+  .pixel-heading {
+    font-size: 1.5rem;
+  }
+
+  .skills-left-gradient-panel {
+    padding: 24px 16px;
+    border-right: none;
+    border-bottom: var(--border-y2k);
+  }
+
+  .skills-right-canvas-panel {
+    padding: 24px 16px;
+  }
+
+  .skills-grid-16, .artifacts-grid-6 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* 5. Community Contributions Section (CollegeSapiens & Intellexa) */
+  .opensource-container,
+  .community-contributions-container {
+    padding: 20px 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .opensource-container *,
+  .community-contributions-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .os-header,
+  .community-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .os-title {
+    font-size: 1.3rem;
+  }
+
+  .os-grid,
+  .community-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .os-card,
+  .community-card,
+  .contribution-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .os-card-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .os-card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .os-card-name {
+    font-size: 1.15rem;
+    line-height: 1.25;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .os-role {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.3;
+    padding: 3px 8px;
+    font-size: 0.62rem;
+    align-self: flex-start;
+    box-sizing: border-box;
+  }
+
+  .os-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .os-card-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .experience-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .milestone-header {
+    padding: 14px 16px;
+  }
+
+  .milestone-body {
+    padding: 16px;
+  }
+
+  .contact-form-pane {
+    padding: 10px;
+  }
+
+  .y2k-form.clean-form {
+    padding: 16px 14px;
+  }
+
+  .direct-contact-card {
+    padding: 20px 16px;
   }
 
   .social-tiles-grid {
     grid-template-columns: 1fr;
   }
 
-  .skills-grid-16, .artifacts-grid-6 {
-    grid-template-columns: 1fr;
-  }
-
-  .isolated-cutout-img {
-    max-width: min(340px, 90vw);
-  }
-
-  .about-isolated-cutout {
-    max-width: min(320px, 86vw);
-  }
-
-  .figure-anti-gravity-stage {
-    min-height: 380px;
-  }
-
-  .about-card-canvas {
-    padding: 24px 18px;
-  }
-
-  .hero-container {
-    padding: 28px 18px;
+  .resume-download-card {
+    padding: 14px 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .viewport-stage {
+    padding: 0 14px;
+    margin: 20px auto 40px;
+    gap: 32px;
+  }
+
+  .portfolio-section {
+    scroll-margin-top: 180px;
+  }
+
+  .hero-container {
+    padding: 20px 14px;
+  }
+
   .nav-btn {
     padding: 6px 10px;
     font-size: 0.68rem;
+    flex-shrink: 0;
   }
 
   .title-name {
     font-size: 1.8rem;
   }
 
+  .title-sub {
+    font-size: 0.78rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
 
   .y2k-cta-btn {
     justify-content: center;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+  }
+
+  .hero-social-strip {
+    gap: 6px;
+  }
+
+  .social-chip {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .about-card-canvas {
+    padding: 20px 14px;
+  }
+
+  .about-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .about-action-pills {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .heyo-banner {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .name-pill-container {
-    font-size: 1.1rem;
-    padding: 4px 14px;
+    font-size: 0.95rem;
+    padding: 4px 12px;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+  }
+
+  .pixel-heading {
+    font-size: 1.3rem;
+  }
+
+  .os-title {
+    font-size: 1.15rem;
+  }
+
+  .project-card {
+    padding: 16px 14px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .y2k-submit-btn {
+    padding: 12px 18px;
+    font-size: 0.78rem;
+  }
+
+  .resume-download-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .resume-dl-link {
+    justify-content: center;
   }
 }
