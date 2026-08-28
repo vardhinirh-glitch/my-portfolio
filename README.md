@@ -9,12 +9,12 @@ A high-performance personal portfolio web application inspired by the visual can
 1. **Anti-Gravity Hero Section**:
    - Dedicated swinging canvas frame with realistic pendulum physics (`antiGravitySwing` keyframes) and dynamic ground shadow breathing.
    - Interactive 3D mouse parallax tilt on hover.
-   - Status indicators, direct "Download Resume" (`resume.pdf`), LinkedIn and GitHub social chips.
+   - Status indicators, direct "Download Resume" (`resume-Harshavardhini (1).pdf`), LinkedIn and GitHub social chips.
 
 2. **Faithful About Me Canvas**:
    - Replicates Harsha's custom artwork and Ainin's layout structure.
    - Top action pills (`More Like This`, `Save`, `Permalink`) with live toast notifications.
-   - Exact bio & 3 core highlights (lead @ CodeSapiens, Technical Executive at Nexora, Python/ML/AWS expertise).
+   - Exact bio & 3 core highlights (Lead @ CodeSapiens, Technical Executive at Nexora, Python/ML/AWS expertise).
    - Recreated interactive bottom-right social widget (`+ Follow Harsha`, `Appreciate` click counter, `Share`, `Comment`).
 
 3. **Featured Projects Showcase**:
