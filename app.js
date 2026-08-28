@@ -1,6 +1,6 @@
 /**
  * HARSHA VARDHINI R - Y2K RETRO-FUTURISTIC PORTFOLIO APPLICATION
- * Core logic: Anti-Gravity Tab Transitions, Sound Synthesizer,
+ * Core logic: Continuous Vertical Smooth Scrolling & ScrollSpy, Web Audio SFX,
  * Formspree form submission gateway, Project Modals, and Ambient Sparkles Canvas.
  */
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // State Management
   const state = {
-    activeTab: 'home',
+    activeSection: 'home',
     sfxEnabled: true,
     appreciatedCount: 148,
     isFollowing: false
@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.start();
       osc.stop(audioCtx.currentTime + duration);
     } catch (e) {
-      // Ignore audio initialization if not interacted yet
+      // Audio context policy fallback
     }
   }
 
   const sfx = {
     click: () => playTone(650, 'triangle', 0.05, 0.04),
-    tab: () => {
+    nav: () => {
       playTone(520, 'sine', 0.06, 0.05);
       setTimeout(() => playTone(780, 'sine', 0.08, 0.05), 40);
     },
@@ -95,72 +95,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 02: ANTI-GRAVITY TAB ROUTING & PAGE TRANSITIONS
+  // 02: CONTINUOUS VERTICAL SMOOTH SCROLLING & SCROLLSPY
   // ==========================================================================
-  const navButtons = document.querySelectorAll('.nav-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-  const actionTabTriggers = document.querySelectorAll('[data-go-tab]');
+  const navLinks = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.portfolio-section');
+  const scrollTriggers = document.querySelectorAll('[data-scroll-to]');
 
-  function switchTab(targetTabId) {
-    if (!targetTabId) return;
-    const targetPane = document.getElementById(`tab-${targetTabId}`);
-    if (!targetPane) return;
+  function scrollToSection(sectionId) {
+    const targetEl = document.getElementById(sectionId);
+    if (!targetEl) return;
+    sfx.nav();
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, null, `#${sectionId}`);
+  }
 
-    state.activeTab = targetTabId;
-    sfx.tab();
-
-    // Update Nav Buttons
-    navButtons.forEach(btn => {
-      const isMatch = btn.getAttribute('data-tab') === targetTabId;
-      btn.classList.toggle('active', isMatch);
-      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+  // Nav Links click handling
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-nav-target') || link.getAttribute('href').replace('#', '');
+      scrollToSection(targetId);
     });
+  });
 
-    // Animate Tab Panes with Anti-Gravity Motion
-    tabPanes.forEach(pane => {
-      if (pane.id === `tab-${targetTabId}`) {
-        pane.classList.add('active');
-        pane.style.display = 'block';
-        requestAnimationFrame(() => {
-          pane.style.opacity = '1';
-          pane.style.transform = 'translateY(0) scale(1)';
+  // CTA buttons with data-scroll-to
+  scrollTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-scroll-to');
+      scrollToSection(targetId);
+    });
+  });
+
+  // ScrollSpy using IntersectionObserver
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        state.activeSection = id;
+        navLinks.forEach(link => {
+          const match = link.getAttribute('data-nav-target') === id || link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', match);
+          link.setAttribute('aria-selected', match ? 'true' : 'false');
         });
-      } else {
-        pane.style.opacity = '0';
-        pane.style.transform = 'translateY(16px) scale(0.98)';
-        setTimeout(() => {
-          if (pane.id !== `tab-${state.activeTab}`) {
-            pane.classList.remove('active');
-            pane.style.display = 'none';
-          }
-        }, 220);
       }
     });
+  }, observerOptions);
 
-    // Update URL hash smoothly
-    history.replaceState(null, null, `#${targetTabId}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.getAttribute('data-tab');
-      switchTab(tab);
-    });
-  });
-
-  actionTabTriggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const tab = trigger.getAttribute('data-go-tab');
-      switchTab(tab);
-    });
-  });
-
-  // Handle direct hash navigation on load
-  const currentHash = window.location.hash.replace('#', '');
-  if (currentHash && document.getElementById(`tab-${currentHash}`)) {
-    switchTab(currentHash);
-  }
+  sections.forEach(sec => observer.observe(sec));
 
   // Resume Download Button feedback
   const btnDownloadResume = document.getElementById('btnDownloadResume');
@@ -176,10 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const btnMoreLikeThis = document.getElementById('btnMoreLikeThis');
   if (btnMoreLikeThis) {
-    btnMoreLikeThis.addEventListener('click', () => {
+    btnMoreLikeThis.addEventListener('click', (e) => {
+      e.preventDefault();
       sfx.pop();
       showToast('🚀 Exploring AI, Deep Learning & Community Projects!');
-      setTimeout(() => switchTab('projects'), 400);
+      scrollToSection('projects');
     });
   }
 

@@ -24,44 +24,44 @@
   <!-- Floating Anti-Gravity Sparkles Canvas -->
   <canvas id="antiGravityCanvas" class="ambient-canvas"></canvas>
 
-  <!-- Global Retro Header & Nav Bar -->
+  <!-- Global Retro Header & Fixed Nav Bar -->
   <header class="retro-header">
     <div class="header-inner">
       <div class="header-left">
         <!-- Single Clean Y2K Retro Badge: OPEN TO WORK -->
-        <div class="open-to-work-badge">
+        <a href="#home" class="open-to-work-badge" title="Harsha Vardhini R - Open to Work">
           <span class="pulse-dot"></span>
           <span class="badge-text">OPEN TO WORK</span>
           <span class="badge-star">✦</span>
-        </div>
+        </a>
       </div>
 
-      <!-- Navigation Tabs -->
-      <nav class="nav-tabs" role="tablist" aria-label="Portfolio Navigation">
-        <button class="nav-btn active" data-tab="home" role="tab" aria-selected="true">
+      <!-- Vertical Smooth-Scroll Navigation Links -->
+      <nav class="nav-tabs" role="navigation" aria-label="Portfolio Navigation">
+        <a href="#home" class="nav-btn active" data-nav-target="home">
           <span class="tab-idx">01</span>
           <span class="tab-name">HOME</span>
-        </button>
-        <button class="nav-btn" data-tab="about" role="tab" aria-selected="false">
+        </a>
+        <a href="#about" class="nav-btn" data-nav-target="about">
           <span class="tab-idx">02</span>
           <span class="tab-name">ABOUT ME</span>
-        </button>
-        <button class="nav-btn" data-tab="projects" role="tab" aria-selected="false">
+        </a>
+        <a href="#projects" class="nav-btn" data-nav-target="projects">
           <span class="tab-idx">03</span>
           <span class="tab-name">PROJECTS</span>
-        </button>
-        <button class="nav-btn" data-tab="skills" role="tab" aria-selected="false">
+        </a>
+        <a href="#skills" class="nav-btn" data-nav-target="skills">
           <span class="tab-idx">04</span>
           <span class="tab-name">SKILLS</span>
-        </button>
-        <button class="nav-btn" data-tab="experience" role="tab" aria-selected="false">
+        </a>
+        <a href="#experience" class="nav-btn" data-nav-target="experience">
           <span class="tab-idx">05</span>
           <span class="tab-name">EXPERIENCE</span>
-        </button>
-        <button class="nav-btn" data-tab="contact" role="tab" aria-selected="false">
+        </a>
+        <a href="#contact" class="nav-btn" data-nav-target="contact">
           <span class="tab-idx">06</span>
           <span class="tab-name">CONTACT</span>
-        </button>
+        </a>
       </nav>
 
       <div class="header-right">
@@ -85,13 +85,13 @@
     </div>
   </header>
 
-  <!-- Main Canvas Container with Y2K Retro Frame -->
+  <!-- Main Continuous Vertical Scroll Layout Container -->
   <main class="viewport-stage">
 
     <!-- ======================================================== -->
-    <!-- 01: HOME TAB                                             -->
+    <!-- 01: HOME SECTION                                         -->
     <!-- ======================================================== -->
-    <section id="tab-home" class="tab-pane active" role="tabpanel">
+    <section id="home" class="portfolio-section hero-section">
       <div class="hero-container">
         
         <!-- Hero Left: Typography, Badges & CTA -->
@@ -118,10 +118,10 @@
               <span class="btn-shine"></span>
             </a>
 
-            <button class="y2k-cta-btn cta-lavender" data-go-tab="about">
+            <a href="#about" class="y2k-cta-btn cta-lavender" data-scroll-to="about">
               <span>Explore About Me</span>
-              <i data-lucide="arrow-right"></i>
-            </button>
+              <i data-lucide="arrow-down"></i>
+            </a>
           </div>
 
           <!-- Social Quick Links -->
@@ -167,7 +167,7 @@
           </div>
         </div>
 
-        <!-- Hero Right: Dedicated Anti-Gravity Isolated Cutout Figure Animation -->
+        <!-- Hero Right: Dedicated Anti-Gravity Isolated Cutout Figure (+25% Resized) -->
         <div class="hero-right">
           <div class="figure-anti-gravity-stage">
             <!-- Floating Decorative Y2K Badges & Sparkles around the figure -->
@@ -179,7 +179,7 @@
 
             <!-- The Isolated Cutout Character with Anti-Gravity Float Animation -->
             <div class="isolated-avatar-rig" id="homeAvatarRig">
-              <img src="assets/avatar-home.png" alt="Harsha Vardhini - AI & Data Science Lead" class="isolated-cutout-img" id="heroCutoutImg" />
+              <img src="assets/avatar-home.png" alt="Harsha Vardhini - AI & Data Science Lead" class="isolated-cutout-img" id="heroCutoutImg" onerror="this.onerror=null; this.src='assets/avatar-transparent.png'" />
             </div>
 
             <!-- Dynamic Anti-Gravity Breathing Floor Shadow -->
@@ -191,9 +191,9 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 02: ABOUT ME TAB                                         -->
+    <!-- 02: ABOUT ME SECTION                                     -->
     <!-- ======================================================== -->
-    <section id="tab-about" class="tab-pane" role="tabpanel">
+    <section id="about" class="portfolio-section about-section">
       <div class="about-container">
         
         <!-- About Top Banner / Navigation Strip -->
@@ -205,10 +205,10 @@
           </div>
 
           <div class="about-action-pills">
-            <button class="pill-action-btn" id="btnMoreLikeThis">
+            <a href="#projects" class="pill-action-btn" id="btnMoreLikeThis">
               <i data-lucide="sparkles"></i>
               <span>More Like This</span>
-            </button>
+            </a>
             <button class="pill-action-btn" id="btnSaveAbout">
               <i data-lucide="bookmark"></i>
               <span>Save</span>
@@ -231,20 +231,21 @@
 
           <div class="about-grid">
             
-            <!-- Left: Character Isolated Cutout & Repositioned Social Pop-up Badge -->
+            <!-- Left: Resized Cutout (+25%) with Retouched Teeth & Overlaying Left Social Card -->
             <div class="about-visual-col">
               <div class="about-cutout-wrapper">
                 <div class="about-float-star star-ab-1">✦</div>
                 <div class="about-float-star burst-ab-1">✴</div>
-                <img src="assets/avatar-about.png" alt="Harsha Vardhini - About Illustration" class="about-isolated-cutout" />
+                <!-- Clean Cutout without background between hands & waist, retouched teeth -->
+                <img src="assets/avatar-about.png" alt="Harsha Vardhini - About Illustration" class="about-isolated-cutout" onerror="this.onerror=null; this.src='assets/about_illustration.jpg'" />
                 <div class="about-ground-shadow"></div>
               </div>
 
-              <!-- Interactive Pop-Up Engagement Badge: Positioned on the LEFT Panel -->
+              <!-- Interactive Pop-Up Engagement Badge: Positioned on the LEFT Panel (Slightly Overlapping Cutout) -->
               <div class="interactive-social-card left-side-badge" id="socialFloatWidget">
                 <div class="widget-top">
                   <div class="widget-avatar">
-                    <img src="assets/profile.jpg" alt="Harsha Mini Avatar" />
+                    <img src="assets/profile.jpg" alt="Harsha Mini Avatar" onerror="this.onerror=null; this.src='assets/avatar-home.png'" />
                   </div>
                   <div class="widget-meta">
                     <span class="widget-name">HARSHA VARDHINI R</span>
@@ -266,10 +267,10 @@
                     <i data-lucide="share-2"></i>
                     <span>Share</span>
                   </button>
-                  <button class="widget-act-btn" data-go-tab="contact">
+                  <a href="#contact" class="widget-act-btn">
                     <i data-lucide="message-square"></i>
                     <span>Comment</span>
-                  </button>
+                  </a>
                 </div>
 
                 <div class="widget-footer">
@@ -334,18 +335,18 @@
 
               <!-- Quick Action Row -->
               <div class="about-cta-row">
-                <button class="y2k-cta-btn cta-terracotta" data-go-tab="projects">
+                <a href="#projects" class="y2k-cta-btn cta-terracotta" data-scroll-to="projects">
                   <span>View My Projects</span>
                   <i data-lucide="arrow-right"></i>
-                </button>
-                <button class="y2k-cta-btn cta-lavender" data-go-tab="skills">
+                </a>
+                <a href="#skills" class="y2k-cta-btn cta-lavender" data-scroll-to="skills">
                   <span>Explore Skills &amp; Certs</span>
                   <i data-lucide="layers"></i>
-                </button>
-                <button class="y2k-cta-btn cta-gold" data-go-tab="experience">
-                  <span>View Experience &amp; Leadership</span>
+                </a>
+                <a href="#experience" class="y2k-cta-btn cta-gold" data-scroll-to="experience">
+                  <span>View Experience &amp; Roles</span>
                   <i data-lucide="award"></i>
-                </button>
+                </a>
               </div>
 
             </div>
@@ -358,9 +359,9 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 03: PROJECTS TAB (5 Projects + Open Source Section)      -->
+    <!-- 03: PROJECTS SECTION                                     -->
     <!-- ======================================================== -->
-    <section id="tab-projects" class="tab-pane" role="tabpanel">
+    <section id="projects" class="portfolio-section projects-section">
       <div class="projects-container">
         
         <div class="section-title-bar">
@@ -625,9 +626,9 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 04: SKILLS TAB (5 Certs + 3 Categorized Skill Panels)    -->
+    <!-- 04: SKILLS SECTION (Strict 5 Certs + Full 16 Skills)      -->
     <!-- ======================================================== -->
-    <section id="tab-skills" class="tab-pane" role="tabpanel">
+    <section id="skills" class="portfolio-section skills-section">
       <div class="skills-container">
         
         <!-- Dual Panel Grid Replicating Reference Design -->
@@ -685,57 +686,322 @@
             </div>
           </div>
 
-          <!-- RIGHT PANEL: Categorized Skills & Software -->
+          <!-- RIGHT PANEL: Full 16-Skill Badge & Artifact Grid -->
           <div class="skills-right-canvas-panel">
 
-            <!-- Category 1: Technical & AI Skills -->
-            <div class="skills-category-block">
+            <!-- Category A: Technical Core & Languages (10 Skills with Inline SVGs) -->
+            <div class="skills-revamp-section">
               <div class="category-header">
-                <span class="cat-badge">CATEGORY // 01</span>
-                <h3 class="cat-title">Technical &amp; AI Skills</h3>
+                <div class="cat-header-left">
+                  <span class="cat-badge">CATEGORY // 01</span>
+                  <h3 class="cat-title">Technical Core &amp; Languages</h3>
+                </div>
+                <span class="cat-count-pill">10 ARTIFACTS</span>
               </div>
-              <div class="category-badges-wrap">
-                <span class="skill-y2k-badge badge-primary">🐍 Python</span>
-                <span class="skill-y2k-badge">🗄️ SQL</span>
-                <span class="skill-y2k-badge">⚡ REST API</span>
-                <span class="skill-y2k-badge">📦 JSON</span>
-                <span class="skill-y2k-badge badge-gold">🧠 Prompt Engineering</span>
-                <span class="skill-y2k-badge badge-lavender">🤖 LLM Fundamentals</span>
-                <span class="skill-y2k-badge badge-primary">👥 CrewAI</span>
-                <span class="skill-y2k-badge">✨ AI-Assisted Dev</span>
-                <span class="skill-y2k-badge badge-gold">🔥 Vibe Coding</span>
-                <span class="skill-y2k-badge">🛠️ AI Tools</span>
-                <span class="skill-y2k-badge badge-lavender">👑 Streamlit</span>
-                <span class="skill-y2k-badge">🌲 DSA Basics</span>
+
+              <div class="skills-grid-16">
+                
+                <!-- 1. Python (Official SVG in Terracotta) -->
+                <div class="skill-artifact-card card-python" title="Python Core & Automation">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 128 128" class="skill-svg-icon" fill="none">
+                      <path d="M63.5 12c-27.8 0-26.1 12-26.1 12l.1 12.5h26.7v3.8H26.3S12 38.7 12 66.8c0 28.1 12.5 27.2 12.5 27.2h7.5v-10.5s-.4-12.5 12.3-12.5h26.5s11.9.2 11.9-11.7V23.7s1.8-11.7-26.2-11.7zm-14.7 7.6c2.5 0 4.5 2 4.5 4.5s-2 4.5-4.5 4.5-4.5-2-4.5-4.5 2-4.5 4.5-4.5z" fill="#D95A53"/>
+                      <path d="M64.5 116c27.8 0 26.1-12 26.1-12l-.1-12.5H63.8v-3.8h37.9s14.3 1.6 14.3-26.5c0-28.1-12.5-27.2-12.5-27.2h-7.5v10.5s.4 12.5-12.3 12.5H57.4s-11.9-.2-11.9 11.7v35.6s-1.8 11.7 26.2 11.7zm14.7-7.6c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z" fill="#3A3258"/>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-subtag">Core Language</span>
+                  </div>
+                </div>
+
+                <!-- 2. SQL (Database Cylinder SVG) -->
+                <div class="skill-artifact-card" title="Structured Query Language">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#3A3258" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                      <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">SQL</span>
+                    <span class="skill-subtag">RDBMS &amp; Queries</span>
+                  </div>
+                </div>
+
+                <!-- 3. REST API (Network Endpoint SVG) -->
+                <div class="skill-artifact-card" title="RESTful APIs & Endpoints">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#D95A53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                      <path d="M18 10v4"></path>
+                      <path d="M12 10v4"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">REST API</span>
+                    <span class="skill-subtag">Endpoints &amp; HTTP</span>
+                  </div>
+                </div>
+
+                <!-- 4. JSON (Code Bracket SVG) -->
+                <div class="skill-artifact-card" title="JavaScript Object Notation">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#7B82C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8 3H6a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2"></path>
+                      <path d="M16 3h2a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2"></path>
+                      <circle cx="10" cy="12" r="1" fill="#7B82C1"></circle>
+                      <circle cx="14" cy="12" r="1" fill="#7B82C1"></circle>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">JSON</span>
+                    <span class="skill-subtag">Data Serialization</span>
+                  </div>
+                </div>
+
+                <!-- 5. Streamlit (Crown / Lightning SVG) -->
+                <div class="skill-artifact-card" title="Streamlit AI Application Framework">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#FF4B4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15 8 22 9 17 14 18.5 21 12 17.5 5.5 21 7 14 2 9 9 8 12 2" fill="#FFEAEA"></polygon>
+                      <path d="M12 2v15.5"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">Streamlit</span>
+                    <span class="skill-subtag">AI Web UI</span>
+                  </div>
+                </div>
+
+                <!-- 6. DSA Basics (Binary Tree / Algorithm Node SVG) -->
+                <div class="skill-artifact-card" title="Data Structures & Algorithms Basics">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#3A3258" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="5" r="3" fill="#FFC837"></circle>
+                      <circle cx="6" cy="19" r="3" fill="#EFEBE4"></circle>
+                      <circle cx="18" cy="19" r="3" fill="#EFEBE4"></circle>
+                      <line x1="10" y1="7.5" x2="7.5" y2="16.5"></line>
+                      <line x1="14" y1="7.5" x2="16.5" y2="16.5"></line>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">DSA Basics</span>
+                    <span class="skill-subtag">Trees &amp; Logic</span>
+                  </div>
+                </div>
+
+                <!-- 7. GitHub (Official Octocat / Branch SVG) -->
+                <div class="skill-artifact-card" title="GitHub Version Control">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="#1c182a">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">GitHub</span>
+                    <span class="skill-subtag">Git &amp; Collaboration</span>
+                  </div>
+                </div>
+
+                <!-- 8. VS Code (Official Visual Studio Code SVG) -->
+                <div class="skill-artifact-card" title="Visual Studio Code">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none">
+                      <path d="M17.5 2L6.5 11l4.5 3.5L17.5 2z" fill="#7B82C1"/>
+                      <path d="M17.5 22L6.5 13l4.5-3.5L17.5 22z" fill="#3A3258"/>
+                      <path d="M2.5 8.5L6.5 12l-4 3.5V8.5z" fill="#D95A53"/>
+                      <path d="M17.5 2L6.5 12l11 10 4-2V4l-4-2z" fill="#007ACC"/>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">VS Code</span>
+                    <span class="skill-subtag">IDE &amp; Extensions</span>
+                  </div>
+                </div>
+
+                <!-- 9. AWS Cloud (Official Cloud / Server SVG) -->
+                <div class="skill-artifact-card" title="Amazon Web Services Cloud Infrastructure">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" fill="#FFF9ED"></path>
+                      <path d="M9 15c2.5 1.5 5.5 1.5 8 0" stroke="#FF9900" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">AWS Cloud</span>
+                    <span class="skill-subtag">Cloud Infra &amp; IAM</span>
+                  </div>
+                </div>
+
+                <!-- 10. Microsoft Word (MS Word Document SVG) -->
+                <div class="skill-artifact-card" title="Microsoft Word Documentation">
+                  <div class="skill-svg-box">
+                    <svg viewBox="0 0 24 24" class="skill-svg-icon" fill="none">
+                      <rect x="4" y="2" width="16" height="20" rx="3" fill="#185ABD"></rect>
+                      <path d="M7 7h10M7 11h10M7 15h6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+                      <circle cx="16" cy="15" r="2.5" fill="#41A5EE"></circle>
+                      <text x="16" y="16.5" font-size="3" fill="#fff" font-weight="bold" text-anchor="middle">W</text>
+                    </svg>
+                  </div>
+                  <div class="skill-meta">
+                    <span class="skill-name">Microsoft Word</span>
+                    <span class="skill-subtag">Technical Docs</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <!-- Category 2: Tools & Software -->
-            <div class="skills-category-block">
+            <!-- Category B: AI, ML & Emerging Tech (6 Y2K Pixel-Art Artifact Badges) -->
+            <div class="skills-revamp-section">
               <div class="category-header">
-                <span class="cat-badge">CATEGORY // 02</span>
-                <h3 class="cat-title">Tools &amp; Software</h3>
+                <div class="cat-header-left">
+                  <span class="cat-badge badge-artifact-tag">CATEGORY // 02</span>
+                  <h3 class="cat-title">AI, ML &amp; Emerging Tech Artifacts</h3>
+                </div>
+                <span class="cat-count-pill pill-gold">6 Y2K ARTIFACTS</span>
               </div>
-              <div class="category-badges-wrap">
-                <span class="skill-y2k-badge badge-primary">🐙 GitHub / Git</span>
-                <span class="skill-y2k-badge">📊 Microsoft Excel</span>
-                <span class="skill-y2k-badge">📝 Microsoft Word</span>
-                <span class="skill-y2k-badge">💻 VS Code</span>
-                <span class="skill-y2k-badge">☁️ AWS Cloud</span>
-              </div>
-            </div>
 
-            <!-- Category 3: Soft Skills & Community -->
-            <div class="skills-category-block">
-              <div class="category-header">
-                <span class="cat-badge">CATEGORY // 03</span>
-                <h3 class="cat-title">Soft Skills &amp; Leadership</h3>
-              </div>
-              <div class="category-badges-wrap">
-                <span class="skill-y2k-badge badge-gold">🎙️ Public Speaking</span>
-                <span class="skill-y2k-badge badge-primary">👑 Leadership</span>
-                <span class="skill-y2k-badge badge-lavender">💬 Communication</span>
-                <span class="skill-y2k-badge badge-gold">🎪 Event Hosting (MC)</span>
+              <div class="artifacts-grid-6">
+                
+                <!-- 11. Prompt Engineering (Glossy Terminal Prompt Sticker >_) -->
+                <div class="y2k-artifact-card artifact-prompt" title="Prompt Engineering">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-dot"></span>
+                    <span class="sticker-dot"></span>
+                    <span class="sticker-tag">PROMPT_V2.0</span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#FFC837" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">Prompt Engineering</h4>
+                      <p class="artifact-desc">Structured zero/few-shot &amp; system instruction design</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 12. LLM (Glowing Neural Network / Transformer Node Icon) -->
+                <div class="y2k-artifact-card artifact-llm" title="Large Language Models">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-tag">TRANSFORMER // LLM</span>
+                    <span class="artifact-sparkle">✦</span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#7B82C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="6" cy="6" r="3" fill="#D95A53"></circle>
+                        <circle cx="18" cy="6" r="3" fill="#7B82C1"></circle>
+                        <circle cx="6" cy="18" r="3" fill="#7B82C1"></circle>
+                        <circle cx="18" cy="18" r="3" fill="#FFC837"></circle>
+                        <circle cx="12" cy="12" r="3" fill="#3A3258"></circle>
+                        <line x1="8.5" y1="7.5" x2="10" y2="10.5"></line>
+                        <line x1="15.5" y1="7.5" x2="14" y2="10.5"></line>
+                        <line x1="8.5" y1="16.5" x2="10" y2="13.5"></line>
+                        <line x1="15.5" y1="16.5" x2="14" y2="13.5"></line>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">LLM Fundamentals</h4>
+                      <p class="artifact-desc">Transformer architecture, fine-tuning &amp; tokenization</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 13. CrewAI (Multi-Agent Swarm Badge) -->
+                <div class="y2k-artifact-card artifact-crew" title="CrewAI Multi-Agent Framework">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-tag">AGENT_SWARM</span>
+                    <span class="status-mini-dot"></span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#D95A53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4" fill="#FFD8D6"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">CrewAI Multi-Agent</h4>
+                      <p class="artifact-desc">Autonomous multi-agent role workflows &amp; tool delegation</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 14. AI-Assisted Development (Robot-Assisted Code Wrench Sticker) -->
+                <div class="y2k-artifact-card artifact-assisted" title="AI-Assisted Development">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-tag">AI_WORKFLOW</span>
+                    <span class="artifact-sparkle">✴</span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#3A3258" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="10" rx="2" fill="#EAE7F7"></rect>
+                        <circle cx="12" cy="5" r="2"></circle>
+                        <path d="M12 7v4"></path>
+                        <line x1="8" y1="16" x2="8.01" y2="16"></line>
+                        <line x1="16" y1="16" x2="16.01" y2="16"></line>
+                        <path d="M14 7l3-3"></path>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">AI-Assisted Dev</h4>
+                      <p class="artifact-desc">Copilots, autonomous code refactoring &amp; test generation</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 15. Vibe Coding / Web Coding (Glitching Pixel Spark Cursor Badge) -->
+                <div class="y2k-artifact-card artifact-vibe" title="Vibe Coding & Web Rapid Prototyping">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-tag">VIBE_CODING ⚡</span>
+                    <span class="pixel-star-mini">✦</span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#FF7A3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#FFE5D9"></polygon>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">Vibe &amp; Web Coding</h4>
+                      <p class="artifact-desc">Rapid iterative flow, full-stack ideation &amp; prototype shipping</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 16. AI Tools (Futuristic Y2K AI Starburst Artifact) -->
+                <div class="y2k-artifact-card artifact-tools" title="AI Suite & Tools">
+                  <div class="artifact-sticker-header">
+                    <span class="sticker-tag">AI_SUITE // 2026</span>
+                    <span class="artifact-sparkle">✦</span>
+                  </div>
+                  <div class="artifact-content">
+                    <div class="artifact-icon-wrap">
+                      <svg viewBox="0 0 24 24" class="artifact-svg" fill="none" stroke="#D95A53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" fill="#FFF3E0"></path>
+                        <circle cx="12" cy="12" r="2" fill="#D95A53"></circle>
+                      </svg>
+                    </div>
+                    <div class="artifact-info">
+                      <h4 class="artifact-title">AI Tools Ecosystem</h4>
+                      <p class="artifact-desc">Model orchestration, embeddings, vector search &amp; evaluation</p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -747,9 +1013,9 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 05: ACCOLADES, LEADERSHIP & EXPERIENCE (NEW TAB)         -->
+    <!-- 05: ACCOLADES, LEADERSHIP & EXPERIENCE SECTION           -->
     <!-- ======================================================== -->
-    <section id="tab-experience" class="tab-pane" role="tabpanel">
+    <section id="experience" class="portfolio-section experience-section">
       <div class="experience-container">
         
         <div class="section-title-bar">
@@ -764,18 +1030,37 @@
 
         <div class="experience-cards-grid">
           
-          <!-- Card 1: Professional Experience -->
+          <!-- Card 1: Professional Experience & Internships -->
           <div class="milestone-card exp-card">
             <div class="milestone-header">
               <div class="header-icon-box bg-gold">💼</div>
               <div class="header-meta">
-                <span class="milestone-badge">INTERNSHIP</span>
+                <span class="milestone-badge">INTERNSHIPS &amp; INDUSTRY</span>
                 <h3 class="milestone-title">Professional Experience</h3>
               </div>
             </div>
 
             <div class="milestone-body">
+              
+              <!-- Role 1: SheBuilds Hackathon Lead -->
               <div class="role-entry">
+                <div class="role-top">
+                  <h4 class="role-position">Sponsorship &amp; Community Partnership Lead</h4>
+                  <span class="role-duration">2026</span>
+                </div>
+                <div class="role-org">SheBuilds Hackathon</div>
+                <p class="role-desc">
+                  Spearheaded community outreach, drove partner engagement, and established corporate sponsorship connections to empower women in AI &amp; technical innovation.
+                </p>
+                <div class="role-tags">
+                  <span class="tech-pill">Sponsorships</span>
+                  <span class="tech-pill">Partnerships</span>
+                  <span class="tech-pill">Community Outreach</span>
+                </div>
+              </div>
+
+              <!-- Role 2: CodeAlpha Python Developer Intern -->
+              <div class="role-entry entry-secondary">
                 <div class="role-top">
                   <h4 class="role-position">Python Developer Intern</h4>
                   <span class="role-duration">May 2026 – June 2026</span>
@@ -791,6 +1076,7 @@
                   <span class="tech-pill">Git / GitHub</span>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -805,7 +1091,26 @@
             </div>
 
             <div class="milestone-body">
+              
+              <!-- Role 1: DSA Club Core Team Member (Outreach) -->
               <div class="role-entry">
+                <div class="role-top">
+                  <h4 class="role-position">Core Team Member — Outreach Team</h4>
+                  <span class="role-duration">Present</span>
+                </div>
+                <div class="role-org">Data Structures &amp; Algorithms (DSA) Club — Panimalar Engg. College</div>
+                <p class="role-desc">
+                  Serving specifically on the <strong>Outreach Team</strong>, driving student developer engagement, coordinating technical coding contests, organizing DSA mentoring circles, and expanding department participation.
+                </p>
+                <div class="role-tags">
+                  <span class="tech-pill">DSA Club</span>
+                  <span class="tech-pill">Outreach Team</span>
+                  <span class="tech-pill">Student Mentorship</span>
+                </div>
+              </div>
+
+              <!-- Role 2: Community Lead CodeSapiens -->
+              <div class="role-entry entry-secondary">
                 <div class="role-top">
                   <h4 class="role-position">Community Lead</h4>
                   <span class="role-duration">Present</span>
@@ -816,6 +1121,7 @@
                 </p>
               </div>
 
+              <!-- Role 3: Executive MC -->
               <div class="role-entry entry-secondary">
                 <div class="role-top">
                   <h4 class="role-position">Executive Master of Ceremonies (MC)</h4>
@@ -826,6 +1132,7 @@
                   Hosted live technical workshops, national speaker sessions, and regional developer hackathons (including Meme Hack).
                 </p>
               </div>
+
             </div>
           </div>
 
@@ -875,9 +1182,9 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- 06: CONTACT TAB (Formspree Direct Setup)                 -->
+    <!-- 06: CONTACT SECTION (Clean Formspree Gateway)            -->
     <!-- ======================================================== -->
-    <section id="tab-contact" class="tab-pane" role="tabpanel">
+    <section id="contact" class="portfolio-section contact-section">
       <div class="contact-container">
         
         <div class="section-title-bar">
@@ -892,19 +1199,11 @@
 
         <div class="contact-card-wrapper">
           
-          <!-- Contact Left: Retro Form (Connected to Formspree Endpoint) -->
+          <!-- Contact Left: Clean High-Contrast Retro Form (No .exe header) -->
           <div class="contact-form-pane">
-            <div class="form-window-header">
-              <div class="window-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <span class="window-title">CONTACT_GATEWAY.exe</span>
-            </div>
 
             <!-- Formspree Endpoint Action with Name, Email, and Message -->
-            <form action="https://formspree.io/f/xppzanay" method="POST" id="contactForm" class="y2k-form">
+            <form action="https://formspree.io/f/xppzanay" method="POST" id="contactForm" class="y2k-form clean-form">
               <div class="form-group">
                 <label for="nameInput" class="form-label">
                   <span class="label-star">✦</span> YOUR NAME
@@ -923,7 +1222,7 @@
                 <label for="messageInput" class="form-label">
                   <span class="label-star">✦</span> MESSAGE
                 </label>
-                <textarea id="messageInput" name="message" class="y2k-textarea" rows="5" placeholder="Hi Harsha, I loved your portfolio and would like to discuss..." required></textarea>
+                <textarea id="messageInput" name="message" class="y2k-textarea" rows="6" placeholder="Hi Harsha, I loved your portfolio and would like to discuss..." required></textarea>
               </div>
 
               <!-- Submit Button with Dynamic State -->

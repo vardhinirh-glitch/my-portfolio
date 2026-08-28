@@ -1,6 +1,6 @@
 /* ==========================================================================
    HARSHA VARDHINI R - Y2K RETRO-FUTURISTIC ANTI-GRAVITY PORTFOLIO STYLESHEET
-   Aesthetic: Y2K Retro-Futuristic Sticker / Canvas / Anti-Gravity Transitions
+   Aesthetic: Y2K Retro-Futuristic Sticker / Canvas / Continuous Vertical Scroll
    ========================================================================== */
 
 :root {
@@ -79,7 +79,7 @@ body {
 }
 
 /* ==========================================================================
-   01: RETRO HEADER & OPEN TO WORK BADGE
+   01: RETRO HEADER & FIXED NAVIGATION BAR
    ========================================================================== */
 
 .retro-header {
@@ -122,6 +122,12 @@ body {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 1px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.open-to-work-badge:hover {
+  transform: translateY(-1px);
 }
 
 .open-to-work-badge .pulse-dot {
@@ -138,7 +144,7 @@ body {
   animation: pulseStar 2s infinite ease-in-out;
 }
 
-/* Nav Tabs */
+/* Nav Links for Smooth Scrolling */
 .nav-tabs {
   display: flex;
   align-items: center;
@@ -163,7 +169,7 @@ body {
   font-size: 0.72rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-decoration: none;
 }
 
@@ -277,44 +283,41 @@ body {
 }
 
 /* ==========================================================================
-   02: VIEWPORT STAGE & ANTI-GRAVITY TAB TRANSITIONS
+   02: CONTINUOUS VERTICAL SCROLL LAYOUT & SECTIONS
    ========================================================================== */
 
 .viewport-stage {
   max-width: var(--max-w-viewport);
-  margin: 28px auto 60px;
+  margin: 32px auto 80px;
   padding: 0 20px;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
-.tab-pane {
-  display: none;
-  opacity: 0;
-  transform: translateY(22px) scale(0.98);
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tab-pane.active {
+.portfolio-section {
   display: block;
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  scroll-margin-top: 105px;
+  position: relative;
+  width: 100%;
 }
 
 /* ==========================================================================
-   03: HOME TAB - HERO & ANTI-GRAVITY CUTOUT ANIMATION
+   03: HOME SECTION - HERO & ANTI-GRAVITY RESIZED CUTOUT (+25%)
    ========================================================================== */
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 36px;
   align-items: center;
   background: var(--c-canvas-cream);
   border: var(--border-y2k);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-y2k-lg);
-  padding: 44px 40px;
+  padding: 48px 42px;
   position: relative;
   overflow: hidden;
 }
@@ -561,8 +564,7 @@ body {
 }
 
 /* ==========================================================================
-   HERO RIGHT: DEDICATED ISOLATED CUTOUT FIGURE ANTI-GRAVITY RIG
-   (Render ONLY the transparent cutout without rectangular photo box)
+   HERO RIGHT: DEDICATED ISOLATED FIGURE STAGE (+25% SIZE ENLARGEMENT)
    ========================================================================== */
 
 .hero-right {
@@ -571,7 +573,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 2;
-  padding: 20px 10px;
+  padding: 10px;
 }
 
 .figure-anti-gravity-stage {
@@ -580,7 +582,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 440px;
+  min-height: 520px;
   width: 100%;
 }
 
@@ -594,15 +596,16 @@ body {
 }
 
 .isolated-avatar-rig:hover {
-  filter: drop-shadow(0 0 20px rgba(123, 130, 193, 0.6));
+  filter: drop-shadow(0 0 24px rgba(123, 130, 193, 0.7));
 }
 
+/* +25% Enlarged Home Figure */
 .isolated-cutout-img {
   display: block;
-  max-width: 320px;
+  max-width: min(480px, 92vw);
   width: 100%;
   height: auto;
-  filter: drop-shadow(4px 8px 16px rgba(28, 24, 42, 0.45));
+  filter: drop-shadow(4px 8px 18px rgba(28, 24, 42, 0.45));
   user-select: none;
   pointer-events: auto;
 }
@@ -617,7 +620,7 @@ body {
 
 .star-fl-1 {
   top: 15px;
-  right: 25px;
+  right: 15px;
   font-size: 2.2rem;
   color: var(--c-gold);
   text-shadow: 2px 2px 0px #171224;
@@ -626,7 +629,7 @@ body {
 
 .star-fl-2 {
   bottom: 60px;
-  left: 20px;
+  left: 10px;
   font-size: 1.8rem;
   color: var(--c-terracotta);
   text-shadow: 2px 2px 0px #171224;
@@ -635,7 +638,7 @@ body {
 
 .burst-fl-1 {
   top: 45%;
-  right: -5px;
+  right: -10px;
   font-size: 2.2rem;
   color: #ffffff;
   text-shadow: 2px 2px 0px #171224;
@@ -655,8 +658,8 @@ body {
 }
 
 .badge-fl-1 {
-  top: 35px;
-  left: 10px;
+  top: 30px;
+  left: 5px;
   background: var(--c-lavender);
   color: #ffffff;
   transform: rotate(-8deg);
@@ -664,7 +667,7 @@ body {
 
 .badge-fl-2 {
   bottom: 80px;
-  right: 15px;
+  right: 10px;
   background: var(--c-gold);
   color: #171224;
   transform: rotate(6deg);
@@ -672,24 +675,24 @@ body {
 
 /* Ground shadow beneath figure */
 .figure-ground-shadow {
-  width: 200px;
-  height: 18px;
+  width: 280px;
+  height: 22px;
   background: radial-gradient(ellipse at center, rgba(28, 24, 42, 0.45) 0%, transparent 70%);
   border-radius: 50%;
-  margin-top: 10px;
+  margin-top: 8px;
   animation: shadowPulse 5s infinite ease-in-out;
 }
 
 /* Anti-Gravity Keyframe Float for Isolated Cutout */
 @keyframes antiGravityFigureFloat {
   0% {
-    transform: translateY(-12px) rotate(-1.5deg);
+    transform: translateY(-14px) rotate(-1.5deg);
   }
   50% {
     transform: translateY(14px) rotate(1.8deg);
   }
   100% {
-    transform: translateY(-12px) rotate(-1.5deg);
+    transform: translateY(-14px) rotate(-1.5deg);
   }
 }
 
@@ -725,7 +728,7 @@ body {
 }
 
 /* ==========================================================================
-   04: ABOUT ME TAB (Isolated Cutout + Left Pop-Up Badge)
+   04: ABOUT ME SECTION (+25% RESIZED FIGURE & LEFT OVERLAY BADGE)
    ========================================================================== */
 
 .about-container {
@@ -785,6 +788,7 @@ body {
   cursor: pointer;
   box-shadow: 2px 2px 0px #171224;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .pill-action-btn i {
@@ -804,7 +808,7 @@ body {
   border: var(--border-y2k);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-y2k-lg);
-  padding: 40px 36px;
+  padding: 44px 38px;
   overflow: hidden;
 }
 
@@ -836,7 +840,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  position: relative;
 }
 
 .about-cutout-wrapper {
@@ -845,11 +849,13 @@ body {
   flex-direction: column;
   align-items: center;
   animation: antiGravityFigureFloat 5.5s infinite ease-in-out;
+  z-index: 2;
 }
 
+/* +25% Resized About Cutout */
 .about-isolated-cutout {
   display: block;
-  max-width: 280px;
+  max-width: min(460px, 88vw);
   width: 100%;
   height: auto;
   filter: drop-shadow(4px 8px 18px rgba(18, 14, 28, 0.5));
@@ -867,31 +873,30 @@ body {
 .burst-ab-1 { bottom: 30px; left: -15px; font-size: 2.2rem; color: #fff; }
 
 .about-ground-shadow {
-  width: 180px;
-  height: 14px;
+  width: 260px;
+  height: 20px;
   background: radial-gradient(ellipse at center, rgba(18, 14, 28, 0.45) 0%, transparent 70%);
   border-radius: 50%;
-  margin-top: 8px;
+  margin-top: 4px;
   animation: shadowPulse 5.5s infinite ease-in-out;
 }
 
-/* Interactive Social Pop-Up Card: RE-POSITIONED ON THE LEFT SIDE */
+/* Interactive Pop-Up Engagement Badge: Positioned on the LEFT Side, slightly overlaying the figure */
 .interactive-social-card.left-side-badge {
   position: relative;
-  bottom: auto;
-  right: auto;
-  background: rgba(25, 20, 38, 0.94);
-  backdrop-filter: blur(10px);
+  margin-top: -36px;
+  background: rgba(25, 20, 38, 0.95);
+  backdrop-filter: blur(12px);
   border: var(--border-y2k);
   border-radius: var(--radius-md);
   padding: 14px 18px;
-  box-shadow: 4px 4px 0px #0e0a19;
+  box-shadow: 5px 5px 0px #0e0a19;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  max-width: 360px;
+  max-width: 440px;
   z-index: 10;
 }
 
@@ -902,8 +907,8 @@ body {
 }
 
 .widget-avatar img {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--c-gold);
   object-fit: cover;
@@ -976,6 +981,7 @@ body {
   padding: 4px 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .widget-act-btn i {
@@ -1138,7 +1144,7 @@ body {
 }
 
 /* ==========================================================================
-   05: PROJECTS TAB & OPEN SOURCE SECTION
+   05: PROJECTS SECTION & OPEN SOURCE
    ========================================================================== */
 
 .projects-container {
@@ -1434,12 +1440,12 @@ body {
 }
 
 /* ==========================================================================
-   06: SKILLS TAB (Strict 5 Certifications & 3 Categorized Panels)
+   06: SKILLS SECTION (5 Certs + Full 16-Skill Grid)
    ========================================================================== */
 
 .skills-dual-panel {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 0.9fr 1.1fr;
   border: var(--border-y2k);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-y2k-lg);
@@ -1524,34 +1530,35 @@ body {
   border: 1px solid rgba(255, 200, 55, 0.4);
 }
 
-/* RIGHT PANEL: Categorized Skills */
+/* RIGHT PANEL: REVAMPED SKILLS & ARTIFACTS CANVAS */
 .skills-right-canvas-panel {
   background: var(--c-canvas-cream);
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding: 32px 30px;
+  gap: 26px;
+  padding: 32px 28px;
   background-image: radial-gradient(circle, #3a3258 1px, transparent 1px);
   background-size: 18px 18px;
 }
 
-.skills-category-block {
-  background: #ffffff;
-  border: var(--border-y2k-thin);
-  border-radius: var(--radius-md);
-  padding: 18px 20px;
-  box-shadow: 3px 3px 0px #1c182a;
+.skills-revamp-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .category-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1.5px dashed #d0c8be;
+  border-bottom: 2px dashed #b8b1a5;
   padding-bottom: 8px;
+}
+
+.cat-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .cat-badge {
@@ -1559,49 +1566,219 @@ body {
   font-size: 0.65rem;
   color: var(--c-terracotta);
   font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badge-artifact-tag {
+  color: #ff7a3d;
 }
 
 .cat-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--c-dark-purple);
 }
 
-.category-badges-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.cat-count-pill {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  background: var(--c-dark-purple);
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
 }
 
-.skill-y2k-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #ffffff;
-  border: 1.5px solid #1c182a;
-  border-radius: var(--radius-sm);
-  padding: 5px 10px;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 700;
+.cat-count-pill.pill-gold {
+  background: var(--c-gold);
   color: #171224;
-  box-shadow: 2px 2px 0px #1c182a;
+  border: 1.5px solid #1c182a;
+}
+
+/* Category A Grid (10 Technical Core Skills) */
+.skills-grid-16 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.skill-artifact-card {
+  background: #ffffff;
+  border: 2px solid #1c182a;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  box-shadow: 3px 3px 0px #1c182a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
 }
 
-.skill-y2k-badge:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0px #1c182a;
+.skill-artifact-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #1c182a;
+  background: #fffdf5;
 }
 
-.skill-y2k-badge.badge-primary { background: #f2efff; border-color: var(--c-dark-purple); }
-.skill-y2k-badge.badge-gold { background: #fff8e1; border-color: #a87900; }
-.skill-y2k-badge.badge-lavender { background: #eef0ff; border-color: #555da8; }
+.skill-svg-box {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #f7f4ef;
+  border: 1.5px solid #1c182a;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.skill-svg-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.skill-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-name {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--c-dark-purple);
+  line-height: 1.15;
+}
+
+.skill-subtag {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  color: var(--c-terracotta-dark);
+  font-weight: 700;
+}
+
+/* Category B Grid (6 AI & Emerging Tech Artifact Badges) */
+.artifacts-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.y2k-artifact-card {
+  background: #ffffff;
+  border: 2.5px solid #1c182a;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  box-shadow: 4px 4px 0px #1c182a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.y2k-artifact-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px #1c182a;
+}
+
+.artifact-prompt { background: linear-gradient(135deg, #ffffff 0%, #fffbf0 100%); }
+.artifact-llm { background: linear-gradient(135deg, #ffffff 0%, #f4f2ff 100%); }
+.artifact-crew { background: linear-gradient(135deg, #ffffff 0%, #fff0ef 100%); }
+.artifact-assisted { background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%); }
+.artifact-vibe { background: linear-gradient(135deg, #ffffff 0%, #fff7ee 100%); }
+.artifact-tools { background: linear-gradient(135deg, #ffffff 0%, #fff2f1 100%); }
+
+.artifact-sticker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px dashed #d5cedf;
+  padding-bottom: 6px;
+}
+
+.sticker-tag {
+  font-family: var(--font-pixel);
+  font-size: 0.62rem;
+  color: var(--c-dark-purple);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sticker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-terracotta);
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.artifact-sparkle, .pixel-star-mini {
+  color: var(--c-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.status-mini-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38ef7d;
+  box-shadow: 0 0 4px #38ef7d;
+}
+
+.artifact-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.artifact-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #1c182a;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  box-shadow: 2px 2px 0px #1c182a;
+  flex-shrink: 0;
+  padding: 6px;
+}
+
+.artifact-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.artifact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.artifact-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--c-dark-purple);
+  line-height: 1.15;
+}
+
+.artifact-desc {
+  font-size: 0.74rem;
+  color: #4e4760;
+  line-height: 1.3;
+}
 
 /* ==========================================================================
-   07: EXPERIENCE & ACCOLADES TAB
+   07: EXPERIENCE & ACCOLADES SECTION
    ========================================================================== */
 
 .experience-container {
@@ -1768,7 +1945,7 @@ body {
 }
 
 /* ==========================================================================
-   08: CONTACT TAB (FORMSPREE INTEGRATION)
+   08: CONTACT SECTION (CLEAN FORMSPREE GATEWAY - NO .EXE HEADER)
    ========================================================================== */
 
 .contact-container {
@@ -1789,40 +1966,11 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-y2k-lg);
   overflow: hidden;
+  padding: 12px;
 }
 
-.form-window-header {
-  background: var(--c-dark-purple);
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: var(--border-y2k);
-}
-
-.window-dots { display: flex; gap: 6px; }
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid #140f21;
-}
-
-.dot-red { background: #ff5f56; }
-.dot-yellow { background: #ffbd2e; }
-.dot-green { background: #27c93f; }
-
-.window-title {
-  font-family: var(--font-pixel);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #ded7f7;
-  letter-spacing: 0.8px;
-}
-
-.y2k-form {
-  padding: 28px 26px;
+.y2k-form.clean-form {
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -2266,13 +2414,14 @@ body {
 }
 
 /* ==========================================================================
-   11: RESPONSIVE BREAKPOINTS
+   11: FULL CROSS-DEVICE RESPONSIVENESS (MOBILE & LAPTOPS)
    ========================================================================== */
 
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
-    padding: 32px 24px;
+    padding: 36px 24px;
+    gap: 28px;
   }
 
   .skills-dual-panel {
@@ -2286,6 +2435,7 @@ body {
 
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .os-grid {
@@ -2301,6 +2451,7 @@ body {
   .header-inner {
     flex-direction: column;
     gap: 12px;
+    padding: 10px 16px;
   }
 
   .nav-tabs {
@@ -2310,7 +2461,7 @@ body {
   }
 
   .title-name {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
 
   .hero-stats-grid {
@@ -2319,5 +2470,58 @@ body {
 
   .social-tiles-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skills-grid-16, .artifacts-grid-6 {
+    grid-template-columns: 1fr;
+  }
+
+  .isolated-cutout-img {
+    max-width: min(340px, 90vw);
+  }
+
+  .about-isolated-cutout {
+    max-width: min(320px, 86vw);
+  }
+
+  .figure-anti-gravity-stage {
+    min-height: 380px;
+  }
+
+  .about-card-canvas {
+    padding: 24px 18px;
+  }
+
+  .hero-container {
+    padding: 28px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn {
+    padding: 6px 10px;
+    font-size: 0.68rem;
+  }
+
+  .title-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .y2k-cta-btn {
+    justify-content: center;
+  }
+
+  .heyo-banner {
+    font-size: 1.6rem;
+  }
+
+  .name-pill-container {
+    font-size: 1.1rem;
+    padding: 4px 14px;
   }
 }
