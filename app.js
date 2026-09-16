@@ -311,6 +311,34 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       techStack: ['Python 3', 'OOP Design', 'Standard Libraries', 'Git / GitHub'],
       githubUrl: 'https://github.com/vardhinirh-glitch/Hangame-game'
+    },
+    codesapiens: {
+      title: 'CodeSapiens Agent — WhatsApp Onboarding System',
+      badge: 'AI / AUTOMATION',
+      problem: 'Manual onboarding of new community members, collecting details, and organizing them into a structured database.',
+      solution: 'A WhatsApp onboarding system built for CodeSapiens that automates new-member onboarding, collects member details, and stores them in a structured database.',
+      features: [
+        'Automated new-member onboarding via WhatsApp',
+        'Collects member details conversationally',
+        'Stores records in a structured database',
+        'Built with whatsapp-web.js and Node.js'
+      ],
+      techStack: ['Node.js', 'whatsapp-web.js', 'SQLite', 'WhatsApp Automation'],
+      githubUrl: 'https://github.com/vardhinirh-glitch/codesapiens-agent'
+    },
+    hackbattle: {
+      title: 'WhatsApp Agent Automation — HACK BATTLE 2026',
+      badge: 'AI / AUTOMATION',
+      problem: 'Creating and customizing AI agents through conversational messaging interfaces during a hackathon setting.',
+      solution: 'A WhatsApp-based interface built during HACK BATTLE 2026 that handles the WhatsApp side of an agent-creation system, allowing users to customize and create AI agents through conversation.',
+      features: [
+        'WhatsApp-based interface for agent-creation',
+        'Allows users to customize and create AI agents through conversation',
+        'Built during HACK BATTLE 2026',
+        'Node.js WhatsApp automation'
+      ],
+      techStack: ['WhatsApp', 'AI Agents', 'Automation', 'Node.js'],
+      githubUrl: 'https://github.com/vardhinirh-glitch/codesapiens-whatsapp-tool'
     }
   };
 

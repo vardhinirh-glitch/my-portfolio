@@ -41,6 +41,20 @@ const portfolioData = {
       description: "Real-time market analytics and algorithmic portfolio tracking application built for performance monitoring.",
       tags: ["Python", "DSA", "Financial Tech"],
       link: "#"
+    },
+    {
+      title: "CodeSapiens Agent",
+      path: "projects/codesapiens_agent.exe",
+      description: "A WhatsApp onboarding system built for CodeSapiens that automates new-member onboarding, collects member details, and stores them in a structured database.",
+      tags: ["Node.js", "whatsapp-web.js", "SQLite", "WhatsApp Automation"],
+      link: "https://github.com/vardhinirh-glitch/codesapiens-agent"
+    },
+    {
+      title: "WhatsApp Agent Automation",
+      path: "projects/whatsapp_agent_automation.exe",
+      description: "A WhatsApp-based interface built during HACK BATTLE 2026 that handles the WhatsApp side of an agent-creation system, allowing users to customize and create AI agents through conversation.",
+      tags: ["WhatsApp", "AI Agents", "Automation", "Node.js"],
+      link: "https://github.com/vardhinirh-glitch/codesapiens-whatsapp-tool"
     }
   ],
   experience: [
